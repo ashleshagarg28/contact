@@ -1,0 +1,7 @@
+{
+  "name": "oauth-practice",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
