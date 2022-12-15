@@ -1,0 +1,29 @@
+ion-content {
+  --padding-top: 16px;
+
+  .content-col {
+    --ion-grid-column-padding: 0px;
+  }
+
+  .user-image {
+    --size: 100px;
+    margin: auto;
+    border-radius: 50%;
+  }
+
+  .user-name {
+    text-align: center;
+  }
+}
+div {
+  padding: 10px;
+  margin: 10px;
+}
+.row-one {
+  border-top: 1px solid #16d84d;
+  border-bottom: 1px solid #16d84d;
+}
+.user-image {
+  --size: 100px;
+  margin: auto;
+}

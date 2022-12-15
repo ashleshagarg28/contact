@@ -168,6 +168,16 @@
               "browserTarget": "app:build:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "app:build:production",
+            "firebaseProject": "myapp-cc037",
+            "firebaseHostingSite": "myapp-cc037"
+          }
         }
       }
     }
@@ -175,7 +185,8 @@
   "cli": {
     "schematicCollections": [
       "@ionic/angular-toolkit"
-    ]
+    ],
+    "analytics": "81759428-6004-4d9c-ab75-8a0ada15390d"
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {

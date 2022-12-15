@@ -1,0 +1,99 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="secondary">
+    <ion-title>Create Contact</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button
+        class="save-button"
+        [disabled]="!createContactForm.valid"
+        (click)="submitForm()"
+        size="large"
+      >
+        save
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="ion-text-center user-image">
+    <div
+      *ngIf="!profilePic"
+      (click)="presentActionSheet()"
+      class="ion-padding-vertical circle profile"
+    >
+      <ion-icon
+        class="ion-padding-top"
+        slot="icon-only"
+        size="large"
+        color="loght"
+        name="camera-sharp"
+      ></ion-icon>
+    </div>
+    <img
+      [src]="fileUrl"
+      *ngIf="profilePic"
+      (click)="presentActionSheet()"
+      class="profile"
+    />
+    <p>
+      <ion-text color="medium"
+        >{{profilePic ? "change photo" : "add photo" }}</ion-text
+      >
+    </p>
+  </div>
+  <ion-row class="add-photo-wrapper"> </ion-row>
+  <form
+    [formGroup]="createContactForm"
+    #createForm="ngForm"
+    (ngSubmit)="createContact(createContactForm.value)"
+  >
+    <ion-item>
+      <ion-input
+        placeholder="First name"
+        inputMode="text"
+        clearInput="true"
+        formControlName="firstName"
+        required
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        placeholder="Last name"
+        inputMode="text"
+        clearInput="true"
+        formControlName="lastName"
+        required
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        placeholder="Email"
+        inputMode="email"
+        clearInput="true"
+        formControlName="email"
+        required
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        placeholder="Phone"
+        inputMode="tel"
+        clearInput="true"
+        formControlName="phone"
+        required
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Category</ion-label>
+      <ion-select placeholder="" formControlName="category">
+        <ion-select-option value="Family">Family</ion-select-option>
+        <ion-select-option value="Friend">Friend</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </form>
+</ion-content>

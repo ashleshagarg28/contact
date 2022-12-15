@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "myapp-cc037": {
+      "hosting": {
+        "app": [
+          "myapp-cc037"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "myapp-cc037"
+  }
+}
