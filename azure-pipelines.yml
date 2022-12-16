@@ -1,0 +1,46 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+
+- script: |
+    npm install
+  displayName: 'npm install and build'
+
+- script: |
+    npm install -g cordova
+    cordova platform add android
+  displayName: 'Installation of cordova and Android platform'
+
+- script: |
+    cordova build android --release
+    cordova build android --debug
+  displayName: 'Generating Android Apps'
+
+
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Agent.BuildDirectory)'
+    Contents: '**/*.apk'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    CleanTargetFolder: true
+    overWrite: false
+    flattenFolders: false
+    preserveTimestamp: true
+  displayName: 'Copying Android App as Artifact'
+
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'ContactApp'
+    artifactType: 'container'
