@@ -16,8 +16,7 @@ steps:
 
 
 - script: |
-    cordova build android --release
-    cordova build android --debug
+    cordova build android
   displayName: 'Generating Android Apps'
 
 - task: CopyFiles@2
