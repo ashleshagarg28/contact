@@ -23,12 +23,12 @@ steps:
   displayName: 'Npm install Cordova'
   
 - script: |
-    ionic cordova platform add android --verbose 
+    ionic cordova platform add android  
   displayName: 'Generating Android Apps'
 
 
 - script: |
-    ionic cordova build android --verbose 
+    ionic cordova build android 
   displayName: 'Generating Android Apps'
 
 - task: CopyFiles@2
