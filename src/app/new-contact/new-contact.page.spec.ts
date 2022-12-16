@@ -31,4 +31,14 @@ describe('NewContactPage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should run a function', () => {
+    var a: string;
+    component.createContact(a);
+    expect(component.createContact).toBeDefined();
+  });
+  it('should run a function', () => {
+    component.submitForm();
+    expect(component.submitForm).toBeDefined();
+  });
 });

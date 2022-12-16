@@ -141,8 +141,5 @@ export class UpdateContactPage implements OnInit, OnDestroy {
       .updateContact(updatedContact)
       .then((res) => this.router.navigate(['/tabs/tab1']));
   }
-  ngOnDestroy() {
-    // this.sub1.unsubscribe();
-    // this.sub2.unsubscribe();
-  }
+  ngOnDestroy() {}
 }
