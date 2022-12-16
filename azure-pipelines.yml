@@ -22,9 +22,10 @@ steps:
     npm install -g cordova
   displayName: 'Npm install Cordova'
   
-  - script: |
+- script: |
     ionic cordova platform add android --verbose 
   displayName: 'Generating Android Apps'
+
 
 - script: |
     ionic cordova build android --verbose 
